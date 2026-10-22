@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.venv/
+**/.env
+!**/.env.example
+__pycache__/
+.pytest_cache/
+data/chroma/
+data/manifest.db
+data/.historico_cli
+data/inbox/*
+!data/inbox/.gitkeep

@@ -1,0 +1,112 @@
+:root {
+  color-scheme: dark;
+  --bg: #0d1117;
+  --fg: #c9d1d9;
+  --dim: #6e7681;
+  --linha: #21262d;
+  --verde: #3fb950;
+  --ciano: #58a6ff;
+  --verm: #f85149;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 15px/1.55 ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+.tela {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+.tela.arrastando { outline: 2px dashed var(--verde); outline-offset: -8px; }
+
+.status {
+  color: var(--dim);
+  font-size: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--linha);
+  overflow-wrap: anywhere;
+}
+
+.log { flex: 1; overflow-y: auto; padding: 16px 0; }
+
+.linha { white-space: pre-wrap; overflow-wrap: anywhere; margin-bottom: 14px; }
+.linha.user::before { content: "você ❯ "; color: var(--verde); font-weight: 700; }
+.linha.bot::before { content: "bot ❯ "; color: var(--ciano); font-weight: 700; }
+.linha.sys { color: var(--dim); }
+.linha.erro { color: var(--verm); }
+
+.linha.bot > :first-child { margin-top: 0; }
+.linha.bot > :last-child { margin-bottom: 0; }
+.linha.bot p { margin: 0 0 10px; }
+.linha.bot h1, .linha.bot h2, .linha.bot h3 {
+  color: var(--fg);
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 14px 0 6px;
+}
+.linha.bot strong { color: #f0f6fc; font-weight: 700; }
+.linha.bot ul, .linha.bot ol { margin: 6px 0 12px; padding-left: 24px; }
+.linha.bot li { padding-left: 3px; margin: 3px 0; }
+.linha.bot li::marker { color: var(--ciano); }
+.linha.bot blockquote {
+  border-left: 2px solid var(--ciano);
+  color: var(--dim);
+  margin: 8px 0;
+  padding-left: 12px;
+}
+.linha.bot code {
+  background: #161b22;
+  border: 1px solid var(--linha);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+.linha.bot pre {
+  background: #161b22;
+  border: 1px solid var(--linha);
+  border-radius: 4px;
+  overflow-x: auto;
+  padding: 10px 12px;
+}
+.linha.bot pre code { border: 0; padding: 0; }
+.linha.bot a { color: var(--ciano); }
+
+.fontes { display: block; margin-top: 4px; color: var(--dim); font-size: 12px; }
+
+.entrada {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0 18px;
+  border-top: 1px solid var(--linha);
+}
+.entrada .prompt { color: var(--verde); font-weight: 700; white-space: nowrap; }
+.entrada input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--fg);
+  font: inherit;
+  caret-color: var(--verde);
+}
+.anexar {
+  background: transparent;
+  border: 1px solid var(--linha);
+  border-radius: 4px;
+  color: var(--dim);
+  font: inherit;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.anexar:hover { color: var(--fg); border-color: var(--dim); }
